@@ -1,0 +1,13 @@
+.gaming-content {
+  display: flex;
+}
+
+.gaming-videos {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.gaming-list {
+  display: flex;
+  flex-wrap: wrap;
+}

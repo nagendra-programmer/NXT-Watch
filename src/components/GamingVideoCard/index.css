@@ -1,0 +1,14 @@
+.gaming-card {
+  width: 220px;
+  margin: 15px;
+  list-style-type: none;
+}
+
+.thumbnail {
+  width: 100%;
+}
+
+.title {
+  font-size: 14px;
+  margin-top: 10px;
+}

@@ -1,0 +1,38 @@
+.video-card {
+  width: 300px;
+  list-style-type: none;
+  margin: 15px;
+}
+
+.thumbnail {
+  width: 100%;
+}
+
+.video-info {
+  display: flex;
+  margin-top: 10px;
+}
+
+.channel-logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 14px;
+}
+
+.channel-name {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.views {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}

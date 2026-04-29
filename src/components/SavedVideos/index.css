@@ -1,0 +1,17 @@
+.saved-layout {
+  display: flex;
+}
+
+.saved-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.saved-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.no-videos {
+  text-align: center;
+}

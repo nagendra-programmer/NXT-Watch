@@ -1,0 +1,9 @@
+.notfound-layout {
+  display: flex;
+}
+
+.notfound-content {
+  flex-grow: 1;
+  text-align: center;
+  padding: 40px;
+}

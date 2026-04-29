@@ -1,0 +1,13 @@
+.trending-content {
+  display: flex;
+}
+
+.trending-videos {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.trending-list {
+  display: flex;
+  flex-direction: column;
+}
