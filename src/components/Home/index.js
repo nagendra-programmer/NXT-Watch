@@ -7,8 +7,6 @@ import Sidebar from '../Sidebar'
 import VideoCard from '../VideoCard'
 import FailureView from '../FailureView'
 
-import ThemeContext from '../../context/ThemeContext'
-
 import './index.css'
 
 const apiStatusConstants = {
@@ -28,6 +26,12 @@ class Home extends Component {
 
   componentDidMount() {
     this.getVideos()
+  }
+
+  onEnterSearch = event => {
+    if (event.key === 'Enter') {
+      this.getVideos()
+    }
   }
 
   getVideos = async () => {
@@ -76,10 +80,11 @@ class Home extends Component {
       <img
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
         alt="no videos"
+        className="no-videos-img"
       />
       <h1>No Search results found</h1>
-      <p>Try different key words or remove search filter</p>
-      <button type="button" onClick={this.getVideos}>
+      <p>Try different keywords or remove search filter</p>
+      <button type="button" onClick={this.getVideos} className="retry-btn">
         Retry
       </button>
     </div>
@@ -102,7 +107,7 @@ class Home extends Component {
   }
 
   renderLoader = () => (
-    <div data-testid="loader">
+    <div className="loader-container" data-testid="loader">
       <Loader type="ThreeDots" height="50" width="50" />
     </div>
   )
@@ -129,77 +134,64 @@ class Home extends Component {
     const {searchInput, showBanner} = this.state
 
     return (
-      <ThemeContext.Consumer>
-        {value => {
-          const {isDarkTheme} = value
+      <div data-testid="home" className="home-container">
+        <Header />
 
-          const bgColor = isDarkTheme ? '#181818' : '#f9f9f9'
+        <div className="home-content">
+          <Sidebar />
 
-          return (
-            <div
-              data-testid="home"
-              className="home-container"
-              style={{backgroundColor: bgColor}}
-            >
-              <Header />
+          <div className="videos-section">
+            {showBanner && (
+              <div className="banner" data-testid="banner">
+                <div className="banner-content">
+                  <img
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                    alt="nxt watch logo"
+                    className="banner-logo"
+                  />
 
-              <div className="home-content">
-                <Sidebar />
+                  <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
 
-                <div className="videos-section">
-                  {showBanner && (
-                    <div
-                      data-testid="banner"
-                      className="banner"
-                      style={{
-                        backgroundImage:
-                          'url("https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png")',
-                      }}
-                    >
-                      <div className="banner-content">
-                        <img
-                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                          alt="nxt watch logo"
-                        />
-
-                        <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-
-                        <button type="button">GET IT NOW</button>
-                      </div>
-
-                      <button
-                        data-testid="close"
-                        type="button"
-                        onClick={() => this.setState({showBanner: false})}
-                      >
-                        X
-                      </button>
-                    </div>
-                  )}
-
-                  <div className="search-container">
-                    <input
-                      type="search"
-                      value={searchInput}
-                      onChange={this.onChangeSearch}
-                    />
-
-                    <button
-                      data-testid="searchButton"
-                      type="button"
-                      onClick={this.getVideos}
-                    >
-                      Search
-                    </button>
-                  </div>
-
-                  {this.renderContent()}
+                  <button type="button" className="banner-btn">
+                    GET IT NOW
+                  </button>
                 </div>
+
+                <button
+                  type="button"
+                  className="banner-close-btn"
+                  data-testid="close"
+                  onClick={() => this.setState({showBanner: false})}
+                >
+                  ✕
+                </button>
               </div>
+            )}
+
+            <div className="search-container">
+              <input
+                type="search"
+                value={searchInput}
+                onChange={this.onChangeSearch}
+                onKeyDown={this.onEnterSearch}
+                placeholder="Search"
+                className="search-input"
+              />
+
+              <button
+                type="button"
+                className="search-btn"
+                data-testid="searchButton"
+                onClick={this.getVideos}
+              >
+                Search
+              </button>
             </div>
-          )
-        }}
-      </ThemeContext.Consumer>
+
+            {this.renderContent()}
+          </div>
+        </div>
+      </div>
     )
   }
 }

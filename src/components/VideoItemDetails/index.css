@@ -1,16 +1,48 @@
+/* MAIN CONTAINER */
+.video-page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER FIX */
+.header-container {
+  flex-shrink: 0;
+}
+
+/* BODY */
 .video-layout {
   display: flex;
+  flex: 1;
+  overflow: hidden; /* 🔥 stops full page scroll */
 }
 
-.video-content {
-  flex-grow: 1;
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
   padding: 20px;
+
+  flex-shrink: 0;
+  overflow-y: auto;
 }
 
+/* CONTENT */
+.video-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+
+  overflow-y: auto; /* 🔥 ONLY THIS SCROLLS */
+}
+
+/* VIDEO DETAILS */
 .video-details {
   width: 100%;
 }
 
+/* BUTTONS */
 .buttons-container {
   display: flex;
   gap: 20px;
@@ -24,6 +56,7 @@
   font-size: 16px;
 }
 
+/* ACTIVE STATES */
 .active-btn {
   color: #2563eb;
 }
@@ -32,6 +65,7 @@
   color: #64748b;
 }
 
+/* CHANNEL */
 .channel-info {
   display: flex;
   margin-top: 20px;
@@ -40,4 +74,12 @@
 .channel-logo {
   height: 50px;
   margin-right: 15px;
+}
+
+/* LOADER */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

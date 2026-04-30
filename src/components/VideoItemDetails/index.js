@@ -85,12 +85,7 @@ class VideoItemDetails extends Component {
   renderSuccessView = () => (
     <ThemeContext.Consumer>
       {value => {
-        const {
-          addSavedVideo,
-          removeSavedVideo,
-          savedVideos,
-          isDarkTheme,
-        } = value
+        const {addSavedVideo, removeSavedVideo, savedVideos} = value
 
         const {videoDetails, isLiked, isDisliked} = this.state
 
@@ -104,7 +99,7 @@ class VideoItemDetails extends Component {
           }
         }
 
-        const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
+        const bgColor = '#f9f9f9'
 
         return (
           <div className="video-details" style={{backgroundColor: bgColor}}>
@@ -163,7 +158,7 @@ class VideoItemDetails extends Component {
   )
 
   renderLoader = () => (
-    <div data-testid="loader">
+    <div className="loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
@@ -188,7 +183,7 @@ class VideoItemDetails extends Component {
 
   render() {
     return (
-      <div data-testid="videoItemDetails">
+      <div data-testid="videoItemDetails" className="video-page-container">
         <Header />
 
         <div className="video-layout">

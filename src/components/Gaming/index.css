@@ -1,13 +1,25 @@
+.gaming-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
 .gaming-content {
   display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 .gaming-videos {
-  flex-grow: 1;
+  flex: 1;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .gaming-list {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
 }

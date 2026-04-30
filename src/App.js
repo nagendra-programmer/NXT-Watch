@@ -12,16 +12,50 @@ import VideoItemDetails from './components/VideoItemDetails'
 import NotFound from './components/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 
+// class App extends Component {
+//   state = {
+//     isDarkTheme: false,
+//     savedVideos: [],
+//   }
+
+//   toggleTheme = () => {
+//     this.setState(prev => ({
+//       isDarkTheme: !prev.isDarkTheme,
+//     }))
+//   }
+
+//   addSavedVideo = video => {
+//     this.setState(prev => ({
+//       savedVideos: [...prev.savedVideos, video],
+//     }))
+//   }
+
+//   removeSavedVideo = id => {
+//     this.setState(prev => ({
+//       savedVideos: prev.savedVideos.filter(each => each.id !== id),
+//     }))
+//   }
+
+//   render() {
+//     const {isDarkTheme, savedVideos} = this.state
+
+//     return (
+//       <ThemeContext.Provider
+//         value={{
+//           isDarkTheme,
+//           toggleTheme: this.toggleTheme,
+//           savedVideos,
+//           addSavedVideo: this.addSavedVideo,
+//           removeSavedVideo: this.removeSavedVideo,
+//         }}
+//       ></ThemeContext.Provider>
+//     )
+//   }
+// }
+
 class App extends Component {
   state = {
-    isDarkTheme: false,
     savedVideos: [],
-  }
-
-  toggleTheme = () => {
-    this.setState(prev => ({
-      isDarkTheme: !prev.isDarkTheme,
-    }))
   }
 
   addSavedVideo = video => {
@@ -37,13 +71,11 @@ class App extends Component {
   }
 
   render() {
-    const {isDarkTheme, savedVideos} = this.state
+    const {savedVideos} = this.state
 
     return (
       <ThemeContext.Provider
         value={{
-          isDarkTheme,
-          toggleTheme: this.toggleTheme,
           savedVideos,
           addSavedVideo: this.addSavedVideo,
           removeSavedVideo: this.removeSavedVideo,
@@ -70,5 +102,4 @@ class App extends Component {
     )
   }
 }
-
 export default App

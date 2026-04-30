@@ -31,11 +31,8 @@ const SavedVideos = () => (
       )
 
       return (
-        <div data-testid="savedVideos">
+        <div data-testid="savedVideos" className="saved-container">
           <Header />
-          <div className="saved-banner">
-            <h1>Saved Videos</h1>
-          </div>
           <div className="saved-layout">
             <Sidebar />
 
